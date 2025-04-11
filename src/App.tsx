@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
 import AdminDashboard from "./pages/AdminDashboard";
+import N8NWebhookOrchestrator from "./pages/N8NWebhookOrchestrator";
 import Index from "./pages/Index";
 
 const queryClient = new QueryClient();
@@ -53,10 +54,16 @@ const App = () => (
             <Route path="register" element={<Register />} />
             <Route path="sign-in" element={<SignIn />} />
             
-            {/* Protected Admin Route */}
+            {/* Protected Admin Routes */}
             <Route path="admin" element={
               <ProtectedRoute adminOnly={true}>
                 <AdminDashboard />
+              </ProtectedRoute>
+            } />
+            
+            <Route path="admin/n8n-webhook-orchestrator" element={
+              <ProtectedRoute adminOnly={true}>
+                <N8NWebhookOrchestrator />
               </ProtectedRoute>
             } />
             
