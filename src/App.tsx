@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Marketplace from "./pages/Marketplace";
@@ -14,8 +14,27 @@ import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
+import AdminDashboard from "./pages/AdminDashboard";
+import Index from "./pages/Index";
 
 const queryClient = new QueryClient();
+
+// Mock authentication state - In a real app, this would use Supabase Auth
+const isAuthenticated = false;
+const isAdmin = false;
+
+// Protected route component
+const ProtectedRoute = ({ children, adminOnly = false }) => {
+  if (!isAuthenticated) {
+    return <Navigate to="/sign-in" replace />;
+  }
+  
+  if (adminOnly && !isAdmin) {
+    return <Navigate to="/" replace />;
+  }
+  
+  return children;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -33,6 +52,14 @@ const App = () => (
             <Route path="blog" element={<Blog />} />
             <Route path="register" element={<Register />} />
             <Route path="sign-in" element={<SignIn />} />
+            
+            {/* Protected Admin Route */}
+            <Route path="admin" element={
+              <ProtectedRoute adminOnly={true}>
+                <AdminDashboard />
+              </ProtectedRoute>
+            } />
+            
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
