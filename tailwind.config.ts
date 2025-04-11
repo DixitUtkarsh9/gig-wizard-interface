@@ -26,15 +26,15 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#14213D', // Deep Tech Blue
+					DEFAULT: '#0E0F11', // Dark background color from Gignaati
 					foreground: '#ffffff'
 				},
 				secondary: {
-					DEFAULT: '#FCA311', // AI Gold
-					foreground: '#000000'
+					DEFAULT: '#5865F2', // Blue highlight color from Gignaati
+					foreground: '#ffffff'
 				},
 				neutral: {
-					DEFAULT: '#E5E5E5',
+					DEFAULT: '#F5F5F7', // Light background from Gignaati
 					foreground: '#000000'
 				},
 				destructive: {
@@ -46,8 +46,8 @@ export default {
 					foreground: 'hsl(var(--muted-foreground))'
 				},
 				accent: {
-					DEFAULT: '#FCA311', // AI Gold
-					foreground: '#000000'
+					DEFAULT: '#6BC25E', // Green accent from Gignaati
+					foreground: '#ffffff'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
