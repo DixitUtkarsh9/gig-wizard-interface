@@ -25,16 +25,23 @@ const SignIn = () => {
 
     try {
       // Here we would integrate with Supabase for authentication
-      // For now, just showing a success message
+      // For now, mocking authentication for demonstration
+      
+      // Simulate authentication success
+      const mockIsAdmin = true; // In a real app, this would come from Supabase auth claims
+      
       toast({
         title: "Success!",
         description: "You have successfully signed in",
       });
       
-      // Redirect to dashboard (or admin if admin user)
-      // For demonstration, we'll just redirect to the homepage
+      // Redirect based on admin status
       setTimeout(() => {
-        navigate('/');
+        if (mockIsAdmin) {
+          navigate('/admin');
+        } else {
+          navigate('/dashboard'); // Regular user dashboard
+        }
       }, 1500);
     } catch (error) {
       toast({

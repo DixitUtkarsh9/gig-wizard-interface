@@ -20,8 +20,8 @@ import Index from "./pages/Index";
 const queryClient = new QueryClient();
 
 // Mock authentication state - In a real app, this would use Supabase Auth
-const isAuthenticated = false;
-const isAdmin = false;
+const isAuthenticated = true; // Changed to true for demonstration
+const isAdmin = true; // Changed to true for demonstration
 
 // Protected route component
 const ProtectedRoute = ({ children, adminOnly = false }) => {
@@ -57,6 +57,13 @@ const App = () => (
             <Route path="admin" element={
               <ProtectedRoute adminOnly={true}>
                 <AdminDashboard />
+              </ProtectedRoute>
+            } />
+            
+            {/* Add a dashboard route for regular users */}
+            <Route path="dashboard" element={
+              <ProtectedRoute>
+                <Home /> {/* Replace with actual Dashboard component when available */}
               </ProtectedRoute>
             } />
             
