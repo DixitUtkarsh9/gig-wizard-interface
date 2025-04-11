@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Search, Filter } from 'lucide-react';
+import { Search, Filter, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Marketplace = () => {

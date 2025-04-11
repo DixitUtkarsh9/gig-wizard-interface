@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Robot, Code, Database, LineChart, FileText, MessageSquare, Shield } from 'lucide-react';
+import { Search, Bot, Code, Database, LineChart, FileText, MessageSquare, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import GigCard from '@/components/GigCard';
 import CategoryCard from '@/components/CategoryCard';
@@ -40,10 +39,10 @@ const Home = () => {
       categories: ['Social Media', 'Content']
     }
   ];
-
+  
   // Sample categories
   const categories = [
-    { title: 'AI Agents', icon: <Robot size={32} />, link: '/marketplace?category=agents' },
+    { title: 'AI Agents', icon: <Bot size={32} />, link: '/marketplace?category=agents' },
     { title: 'Development', icon: <Code size={32} />, link: '/marketplace?category=development' },
     { title: 'Data & Analytics', icon: <Database size={32} />, link: '/marketplace?category=data' },
     { title: 'Business', icon: <LineChart size={32} />, link: '/marketplace?category=business' },
@@ -226,7 +225,7 @@ const Home = () => {
             
             <div className="text-center p-6 rounded-lg shadow-sm">
               <div className="text-primary mb-4">
-                <Robot size={48} className="mx-auto" />
+                <Bot size={48} className="mx-auto" />
               </div>
               <h3 className="text-xl font-bold mb-2">Verified AI Experts</h3>
               <p className="text-gray-600">
